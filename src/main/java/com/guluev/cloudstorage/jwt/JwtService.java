@@ -36,6 +36,11 @@ public class JwtService {
         return generateToken(new HashMap<>(), userDetails);
     }
 
+    public boolean isTokenValid(String token, UserDetails userDetails) {
+        String userEmail = extractUserEmail(token);
+        return (userEmail.equals(userDetails.getUsername()) && !isTokenExpired(token));
+    }
+
     private <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         var claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
