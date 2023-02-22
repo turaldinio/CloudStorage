@@ -1,6 +1,7 @@
 package com.guluev.cloudstorage.se
 curity;
 
+import com.guluev.cloudstorage.jwt.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
