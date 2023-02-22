@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -29,6 +30,10 @@ public class JwtService {
                 setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24)).
                 signWith(getSigningKey(), SignatureAlgorithm.HS256).
                 compact();
+    }
+
+    public String generateToken(UserDetails userDetails) {
+        return generateToken(new HashMap<>(), userDetails);
     }
 
     private <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
