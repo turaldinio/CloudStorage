@@ -1,4 +1,4 @@
-package com.guluev.cloudstorage.security;
+package com.guluev.cloudstorage.config;
 
 import com.guluev.cloudstorage.jwt.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
