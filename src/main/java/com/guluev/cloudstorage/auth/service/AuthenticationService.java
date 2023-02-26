@@ -20,17 +20,7 @@ public class AuthenticationService {
 
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationToken register(RegisterRequest request) {
-        var user = User.builder().
-                email(request.getEmail()).
-                password(passwordEncoder.encode(request.getPassword())).
-                build();
-        userRepository.save(user);
-        var jwtToken = jwtService.generateToken(user);
-        return AuthenticationToken.builder().token(jwtToken).build();
-
-    }
-
+    
 
     public AuthenticationToken authenticate(AuthenticationRequest request) {
         var a=authenticationManager.authenticate
