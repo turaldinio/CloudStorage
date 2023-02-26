@@ -19,6 +19,9 @@ import java.util.List;
 @Builder
 public class User implements UserDetails {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(unique = true)
     private String email;
     @Column(nullable = false)
     private String password;
