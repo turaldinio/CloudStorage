@@ -1,5 +1,6 @@
 package com.guluev.cloudstorage.auth.service;
 
+import com.guluev.cloudstorage.auth.AuthenticationRequest;
 import com.guluev.cloudstorage.auth.AuthenticationToken;
 import com.guluev.cloudstorage.auth.jwt.JwtService;
 import com.guluev.cloudstorage.repository.UserRepository;

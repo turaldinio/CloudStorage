@@ -15,6 +15,7 @@ public class UserFiles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    private String fileName;
     private long fileSize;
     @Column(length = 100_000)
     private byte[] file;

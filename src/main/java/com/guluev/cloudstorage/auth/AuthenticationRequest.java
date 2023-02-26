@@ -1,4 +1,4 @@
-package com.guluev.cloudstorage.auth.service;
+package com.guluev.cloudstorage.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
