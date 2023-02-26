@@ -26,6 +26,10 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password;
 
+    @OneToMany
+    @JoinColumn(name = "userId")
+    List<UserFiles> userFiles;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
