@@ -1,6 +1,5 @@
 package com.guluev.cloudstorage.config;
 
-import com.guluev.cloudstorage.auth.jwt.config.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

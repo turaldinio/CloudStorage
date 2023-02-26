@@ -1,4 +1,4 @@
-package com.guluev.cloudstorage.auth.jwt;
+package com.guluev.cloudstorage.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

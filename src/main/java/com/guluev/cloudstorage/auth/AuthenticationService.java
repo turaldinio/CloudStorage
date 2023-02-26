@@ -1,8 +1,8 @@
-package com.guluev.cloudstorage.auth.service;
+package com.guluev.cloudstorage.auth;
 
 import com.guluev.cloudstorage.auth.AuthenticationRequest;
 import com.guluev.cloudstorage.auth.AuthenticationToken;
-import com.guluev.cloudstorage.auth.jwt.JwtService;
+import com.guluev.cloudstorage.service.JwtService;
 import com.guluev.cloudstorage.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,7 +1,7 @@
 package com.guluev.cloudstorage.rest;
 
 import com.guluev.cloudstorage.auth.AuthenticationRequest;
-import com.guluev.cloudstorage.auth.service.AuthenticationService;
+import com.guluev.cloudstorage.auth.AuthenticationService;
 import com.guluev.cloudstorage.service.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

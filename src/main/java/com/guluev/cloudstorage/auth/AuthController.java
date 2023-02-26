@@ -1,7 +1,5 @@
-package com.guluev.cloudstorage.auth.rest;
+package com.guluev.cloudstorage.auth;
 
-import com.guluev.cloudstorage.auth.AuthenticationRequest;
-import com.guluev.cloudstorage.auth.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
