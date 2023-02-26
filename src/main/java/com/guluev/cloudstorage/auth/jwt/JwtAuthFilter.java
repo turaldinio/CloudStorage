@@ -1,4 +1,4 @@
-package com.guluev.cloudstorage.jwt;
+package com.guluev.cloudstorage.auth.jwt;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

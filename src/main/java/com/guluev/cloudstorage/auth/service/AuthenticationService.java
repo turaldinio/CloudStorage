@@ -1,7 +1,8 @@
-package com.guluev.cloudstorage.service;
+package com.guluev.cloudstorage.auth.service;
 
+import com.guluev.cloudstorage.auth.AuthenticationToken;
+import com.guluev.cloudstorage.auth.jwt.JwtService;
 import com.guluev.cloudstorage.entity.User;
-import com.guluev.cloudstorage.jwt.JwtService;
 import com.guluev.cloudstorage.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,19 +20,19 @@ public class AuthenticationService {
 
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse register(RegisterRequest request) {
+    public AuthenticationToken register(RegisterRequest request) {
         var user = User.builder().
                 email(request.getEmail()).
                 password(passwordEncoder.encode(request.getPassword())).
                 build();
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder().token(jwtToken).build();
+        return AuthenticationToken.builder().token(jwtToken).build();
 
     }
 
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+    public AuthenticationToken authenticate(AuthenticationRequest request) {
         var a=authenticationManager.authenticate
                 (new UsernamePasswordAuthenticationToken(request.
                         getLogin(), request.getPassword())
@@ -40,7 +41,7 @@ public class AuthenticationService {
         var user = userRepository.findUserByEmail(request.getLogin()).orElseThrow();
 
         var jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder().token(jwtToken).build();
+        return AuthenticationToken.builder().token(jwtToken).build();
     }
 
 
