@@ -16,19 +16,19 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class FileService {
     private final FileRepository fileRepository;
-    private final UserRepository userRepository;
+    private final UserService userService;
 
 
     @Transactional
     public ResponseEntity<?> uploadFile(MultipartFile multipartFile) {
         try {
 
-            var user = userRepository.findUserByEmail(
+            var user = userService.findUserByEmail(
                     SecurityContextHolder.
                             getContext().
                             getAuthentication().
                             getName()
-            ).orElseThrow();
+            );
 
             var userFile = UserFiles.builder().
                     fileName(multipartFile.getOriginalFilename()).
