@@ -13,33 +13,27 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Builder
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(unique = true)
+
     private String email;
-    @Column(nullable = false)
     private String password;
+    private String userToken;
 
     @OneToMany
     @JoinColumn(name = "userId")
-    List<UserFiles> userFiles;
+    private List<UserFiles> file;
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("USER"));
-
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
     }
 
     @Override
@@ -49,21 +43,21 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
