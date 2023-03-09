@@ -1,4 +1,4 @@
-package com.guluev.cloudstorage.rest;
+package com.guluev.cloudstorage.controllers;
 
 
 import com.guluev.cloudstorage.model.FileResponse;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
