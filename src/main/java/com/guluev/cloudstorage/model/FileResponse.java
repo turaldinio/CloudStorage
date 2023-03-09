@@ -12,3 +12,4 @@ import lombok.NoArgsConstructor;
 public class FileResponse {
     private String filename;
     private long size;
+}

@@ -17,8 +17,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @RequiredArgsConstructor
 public class ApplicationConfig {
-
     private final UserService userService;
+
 
     @Bean
     public WebMvcConfigurer webMvcConfigurer() {
@@ -29,8 +29,15 @@ public class ApplicationConfig {
                         .allowCredentials(true)
                         .allowedOrigins("http://localhost:8080")
                         .allowedMethods("*");
+
             }
         };
+    }
+
+    @Bean
+    public UserDetailsService userDetailsService() {
+
+        return userService::findUserByEmail;
     }
 
     @Bean
@@ -40,13 +47,6 @@ public class ApplicationConfig {
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
-
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return userService::findUserByEmail;
-
-    }
-
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
