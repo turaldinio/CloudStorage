@@ -2,6 +2,7 @@ package com.guluev.cloudstorage.service;
 
 import com.guluev.cloudstorage.auth.IAuthenticationImpl;
 import com.guluev.cloudstorage.entity.UserFiles;
+import com.guluev.cloudstorage.model.FileResponse;
 import com.guluev.cloudstorage.repository.FileRepository;
 import jakarta.transaction.Transactional;
 import lombok.Data;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -107,7 +109,7 @@ public class FileService {
 
 
         String newName = fileResponse.getFilename();
-        fileResponse.getByFileNameAndUserId(oldName, currentUserId).orElseThrow(() ->
+        fileRepository.getByFileNameAndUserId(oldName, currentUserId).orElseThrow(() ->
                 new ErrorInputDate(String.format("ErrorInputDate input date: file %s not found exception", oldName)));
 
         try {
