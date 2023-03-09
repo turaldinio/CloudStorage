@@ -1,5 +1,6 @@
 package com.guluev.cloudstorage.service;
 
+import com.guluev.cloudstorage.auth.IAuthenticationImpl;
 import com.guluev.cloudstorage.entity.UserFiles;
 import com.guluev.cloudstorage.repository.FileRepository;
 import jakarta.transaction.Transactional;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
 @Service
 @Data
 @RequiredArgsConstructor
-public class UserFileService {
+public class FileService {
     private final FileRepository fileRepository;
     private final UserService userService;
     private final IAuthenticationImpl authentication;
