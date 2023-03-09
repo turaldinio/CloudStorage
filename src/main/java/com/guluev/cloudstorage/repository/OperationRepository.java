@@ -1,5 +1,6 @@
 package com.guluev.cloudstorage.repository;
 
+import com.guluev.cloudstorage.service.LoggerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
