@@ -1,0 +1,1 @@
+insert into user (email,password) values ('user','$2y$04$UqV9qaPWiW24IH7Pkh5lIujtSFWEY/HcQ25NXs5Ftw27RLbTiDWzy')

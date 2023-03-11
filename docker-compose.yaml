@@ -14,7 +14,7 @@ services:
     container_name: 'mysql-docker'
     image: mysql:8.0.32
     ports:
-      - '3306:3306'
+      - '3307:3306'
     environment:
       - MYSQL_ROOT_PASSWORD=11111111
       - MYSQL_DATABASE=trening

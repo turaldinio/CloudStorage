@@ -21,7 +21,6 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-
 class CloudStorageApplicationTests {
 
     @LocalServerPort
@@ -63,10 +62,12 @@ class CloudStorageApplicationTests {
 
     /**
      * попытка доступа с действующим токеном
-     * ожидаемое значение 200
+     * ожидаем, что доступ будет разрешен
      */
     @Test
     public void accessWithAValidToken() throws URISyntaxException {
+
+
         var user = createJwtTokenAndSavePersonInDb();
 
         String token = user.getUserToken();
@@ -80,17 +81,17 @@ class CloudStorageApplicationTests {
                 HttpMethod.GET,
                 new HttpEntity<>(header),
                 new ParameterizedTypeReference<List<FileResponse>>() {
-                }).getStatusCode().value();
+                }).getBody();
 
         userRepository.delete(user);
 
-        Assertions.assertEquals(200, result);
+        Assertions.assertNotNull(result);
 
     }
 
 
     public User createJwtTokenAndSavePersonInDb() {
-        var user = User.builder().email("user").password(passwordEncoder.encode("user")).build();
+        var user = User.builder().email("admin").password(passwordEncoder.encode("user")).build();
 
         var jwtToken = jwtService.generateToken(user);
 

@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: migrations/001-insert_in_user.sql
+      relativeToChangelogFile: true
