@@ -1,0 +1,23 @@
+services:
+  backend:
+    image: 'backend:latest'
+    ports:
+      - '8081:8081'
+
+    depends_on:
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-docker:3306/trening?characterEncoding=UTF-8&useUnicode=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=11111111
+  mysql:
+    container_name: 'mysql-docker'
+    image: mysql:8.0.32
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=11111111
+      - MYSQL_DATABASE=trening
+
+
+
